@@ -1,4 +1,5 @@
 #Kilde: The Coffee Shop Price Calculator - www.101computing.net/the-coffee-shop-price-calculator
+#Printer ut al informasjon som skal sendes i begynelsen
 print("+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+")
 print("+                               +")
 print("+         The Coffee Shop       +")
@@ -17,7 +18,7 @@ print(" > Flat White    £2.50")
 print("----------------------------")
 
 price = 0
-coffee = input("What type of coffee would you like?").title()
+coffee = input("What type of coffee would you like? ").title()
 if coffee=="Espresso":
    price = price + 2.50
 elif coffee=="Americano":
