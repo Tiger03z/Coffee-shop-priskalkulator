@@ -3,6 +3,7 @@
 "variabler"
 price = 0
 antallKoper = 0
+kaffer = []
 
 
 
@@ -11,7 +12,7 @@ antallKoper = 0
 
 
 def spørOmKopper():
-   return int(input("Hvor mange kopper vil du ha? "))
+   return int(input("How manny cups do you want? "))
 
 
 # funksjoner som printer ut al informasjon som skal sendes i begynelsen
@@ -38,6 +39,9 @@ def welcome():
 welcome()
 antallKoper = spørOmKopper()
 coffeeMeny()
+
+for x in antallKoper:
+   kaffer.append = input("What coffee do you want? ")
 
 
 coffee = input("What type of coffee would you like? ").title()
