@@ -1,5 +1,19 @@
 #Kilde: The Coffee Shop Price Calculator - www.101computing.net/the-coffee-shop-price-calculator
 
+"variabler"
+price = 0
+antallKoper = 0
+
+
+
+
+
+
+
+def spørOmKopper():
+   return int(input("Hvor mange kopper vil du ha? "))
+
+
 # funksjoner som printer ut al informasjon som skal sendes i begynelsen
 def coffeeMeny ():
    print("We serve the following coffees:")
@@ -22,9 +36,10 @@ def welcome():
    print("")
 
 welcome()
+antallKoper = spørOmKopper()
 coffeeMeny()
 
-price = 0
+
 coffee = input("What type of coffee would you like? ").title()
 if coffee=="Espresso":
    price = price + 2.50
