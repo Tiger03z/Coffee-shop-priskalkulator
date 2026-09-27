@@ -6,6 +6,7 @@
 price = 0
 kaffer = []
 recit = []
+##sm er for å ha en teller jeg kan bruke over hele programmet
 sm = 0
 
 
@@ -37,7 +38,7 @@ def coffeeSize():
    print(" > Large       + £0.50")
    print(" > XL          + £1.00")
    print("----------------------------")
-def coffeTaste():
+def coffeeTaste():
    print("We have the following add-ons:")
    print("----------------------------")
    print(" > Vanilla     + £1.00")
@@ -86,18 +87,18 @@ def prisOmSmak():
 def prisOmStørelse():
    global price
    global size
-   if size == "Small":
+   if size == "Medium":
       price += 0
       recit[sm]["size"] = 0
-   elif size == "Medium":
+   elif size == "Large":
       price += 0.50
       recit[sm]["size"] = 0.50
-   elif size == "Large":
+   elif size == "Xl":
       price += 1.00
       recit[sm]["size"] = 1.00
    else:
       print("Invalid size selection.")
-      size = str(input("What size do you want? ")).title()
+      size = str(input(f"What size do you want for your {kaffer[sm][f'{sm}smak']}? ")).title()
       prisOmStørelse()
 ### same funksjon som endrer prisene inpå "price" og inpå "recit"
 def prisOmTilbehør():
@@ -117,7 +118,7 @@ def prisOmTilbehør():
       recit[sm]["tilbehør"] = 0.00
    else:
       print("Invalid add-on selection.")
-      tilbehør = str(input("What add-on do you want? ")).title()
+      tilbehør = str(input(f"What addon do you want for your {kaffer[sm]["size"]} {kaffer[sm][f'{sm}smak']}? ")).title()
       prisOmTilbehør()
 ########
 #coden som skjøres begyner her
@@ -126,6 +127,8 @@ welcome()
 
 antallKoper = int(input("How manny cups do you want? "))
 kopperAdd()
+#lagre nummeret for senere bruk
+tall = antallKoper
 
 coffeeMeny()
 while antallKoper > 0 :
@@ -133,21 +136,38 @@ while antallKoper > 0 :
    prisOmSmak()
    antallKoper -= 1
    kaffer[sm][f"{sm}smak"] = kaffe
+   sm += 1
+
+#barrefor å resette til defult
+antallKoper = tall
+sm = 0
+coffeeSize()
+while antallKoper > 0 :
+   size = str(input(f"What size do you want for your {kaffer[sm][f'{sm}smak']}? ")).title()
+   prisOmStørelse()
+   antallKoper -= 1
    kaffer[sm]["size"] = size
+   sm += 1
+
+#barrefor å resette til defult
+antallKoper = tall
+sm = 0
+
+coffeeTaste()
+while antallKoper > 0 :
+   tilbehør = str(input(f"What addon do you want for your {kaffer[sm]["size"]} {kaffer[sm][f'{sm}smak']}? ")).title()
+   prisOmTilbehør()
+   antallKoper -= 1
+   kaffer[sm]["tilbehør"] = tilbehør
    sm += 1
 print(kaffer)
 print(recit)
 
-
-
-#Complete the code here...
 print("----------------------------")
 print("Total Cost: £" + str(price))
 
-
-
-
 #not using prob
+#but i did use it
 """coffee = input("What type of coffee would you like? ").title()
 if coffee=="Espresso":
    price = price + 2.50
