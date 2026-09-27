@@ -51,7 +51,9 @@ def recitPrint():
    print("----------------------------")
    print("Here is your receipt:       ")
    for x in range(antallKoper):
-      print(f"{kaffer[sm][f"{sm}smak"]} £{recit[sm][f"{sm}smak"]}    {kaffer[sm]["size"]} £{recit[sm]["size"]}    {kaffer[sm]["tilbehør"]} £{recit[sm]["tilbehør"]}")
+      #windows
+      #print(f"{kaffer[sm][f"{sm}smak"]} £{recit[sm][f"{sm}smak"]}    {kaffer[sm]["size"]} £{recit[sm]["size"]}    {kaffer[sm]["tilbehør"]} £{recit[sm]["tilbehør"]}")
+      print(f"{kaffer[sm][f'{sm}smak']} £{recit[sm][f'{sm}smak']}    {kaffer[sm]['size']} £{recit[sm]['size']}    {kaffer[sm]['tilbehør']} £{recit[sm]['tilbehør']}")
       sm += 1
 #####
 #andre funsjoner for at kode skal funke
@@ -125,7 +127,9 @@ def prisOmTilbehør():
       recit[sm]["tilbehør"] = 0.00
    else:
       print("Invalid add-on selection.")
-      tilbehør = str(input(f"What addon do you want for your {kaffer[sm]["size"]} {kaffer[sm][f'{sm}smak']}? ")).title()
+      #windows
+      #tilbehør = str(input(f"What addon do you want for your {kaffer[sm]["size"]} {kaffer[sm][f'{sm}smak']}? ")).title()
+      tilbehør = str(input(f"What addon do you want for your {kaffer[sm]['size']} {kaffer[sm][f'{sm}smak']}? ")).title()
       prisOmTilbehør()
 ########
 #coden som skjøres begyner her
@@ -163,7 +167,9 @@ sm = 0
 
 coffeeTaste()
 while antallKoper > 0 :
-   tilbehør = str(input(f"What addon do you want for your {kaffer[sm]["size"]} {kaffer[sm][f'{sm}smak']}? ")).title()
+   #windows
+   #tilbehør = str(input(f"What addon do you want for your {kaffer[sm]["size"]} {kaffer[sm][f"{sm}smak"]}? ")).title()
+   tilbehør = input(f"What addon do you want for your {kaffer[sm]['size']} {kaffer[sm][f'{sm}smak']}? ").title()
    prisOmTilbehør()
    antallKoper -= 1
    kaffer[sm]["tilbehør"] = tilbehør
