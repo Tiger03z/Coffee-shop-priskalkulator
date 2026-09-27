@@ -136,7 +136,7 @@ def prisOmTilbehør():
 
 welcome()
 
-antallKoper = int(input("How manny cups do you want? "))
+antallKoper = int(input("How many cups do you want? "))
 
 kopperAdd()
 #lagre nummeret for senere bruk
@@ -144,7 +144,7 @@ tall = antallKoper
 
 coffeeMeny()
 while antallKoper > 0 :
-   kaffe = str(input("What coffee do you want? ")).title()
+   kaffe = str(input("What kind of coffee would you like? ")).title()
    prisOmSmak()
    antallKoper -= 1
    kaffer[sm][f"{sm}smak"] = kaffe
@@ -155,7 +155,7 @@ antallKoper = tall
 sm = 0
 coffeeSize()
 while antallKoper > 0 :
-   size = str(input(f"What size do you want for your {kaffer[sm][f'{sm}smak']}? ")).title()
+   size = str(input(f"What size would you like for your {kaffer[sm][f'{sm}smak']}? ")).title()
    prisOmStørelse()
    antallKoper -= 1
    kaffer[sm]["size"] = size
@@ -169,16 +169,15 @@ coffeeTaste()
 while antallKoper > 0 :
    #windows
    #tilbehør = str(input(f"What addon do you want for your {kaffer[sm]["size"]} {kaffer[sm][f"{sm}smak"]}? ")).title()
-   tilbehør = input(f"What addon do you want for your {kaffer[sm]['size']} {kaffer[sm][f'{sm}smak']}? ").title()
+   tilbehør = input(f"Do you want any add-ons for your {kaffer[sm]['size']} {kaffer[sm][f'{sm}smak']}? ").title()
    prisOmTilbehør()
    antallKoper -= 1
    kaffer[sm]["tilbehør"] = tilbehør
    sm += 1
+print("----------------------------")
+print("Your Total Cost is: £" + str(price))
 
 antallKoper = tall
 sm = 0
 recitPrint()
-
-
 print("----------------------------")
-print("Your Total Cost is: £" + str(price))
