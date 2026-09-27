@@ -1,7 +1,6 @@
 #Kilde: The Coffee Shop Price Calculator - www.101computing.net/the-coffee-shop-price-calculator
 
 "variabler"
-import re
 
 
 price = 0
@@ -32,15 +31,30 @@ def coffeeMeny ():
    print(" > Mocha         £3.50")
    print(" > Flat White    £2.50")
    print("----------------------------")
+def coffeeSize():
+   print("We have the following sizes:")
+   print(" > Medium      + £0.00")
+   print(" > Large       + £0.50")
+   print(" > XL          + £1.00")
+   print("----------------------------")
+def coffeTaste():
+   print("We have the following add-ons:")
+   print("----------------------------")
+   print(" > Vanilla     + £1.00")
+   print(" > Milk        + £0.50")
+   print(" > Suger       + £0.50")
+   print(" > Nothing     + £0.00")
+   print("----------------------------")
 #####
 #andre funsjoner for at kode skal funke
+# funksjon som lager tomme ordbøker som kan brukes senere i coden
 def kopperAdd ():
-   #en løkke for å lage tomme ordbøker som kan brukes senere i coden
+   #en løkke for å repitere det så så mange ganger sil svaret brukeren gir
    for x in range(antallKoper):
       kaffer.append({f"{x}smak": "", "size": "", "tilbehør": ""})
       recit.append({f"{x}smak": "", "size": "", "tilbehør": ""})
+#denne funkjonen endrer prisene inpå "price" og inpå "recit"
 def prisOmSmak():
-   #denne funkjonen endrer prisene inpå "price" og inpå "recit"
    global price
    global kaffe
    if kaffe == "Espresso":
@@ -68,6 +82,7 @@ def prisOmSmak():
       print("Invalid coffee selection.")
       kaffe = str(input("What coffee do you want? ")).title()
       prisOmSmak()
+### same funksjon som endrer prisene inpå "price" og inpå "recit"
 def prisOmStørelse():
    global price
    global size
@@ -84,32 +99,45 @@ def prisOmStørelse():
       print("Invalid size selection.")
       size = str(input("What size do you want? ")).title()
       prisOmStørelse()
+### same funksjon som endrer prisene inpå "price" og inpå "recit"
+def prisOmTilbehør():
+   global price
+   global tilbehør
+   if tilbehør == "Vanilla":
+      price += 1.00
+      recit[sm]["tilbehør"] = 1.00
+   elif tilbehør == "Milk":
+      price += 0.50
+      recit[sm]["tilbehør"] = 0.50
+   elif tilbehør == "Suger":
+      price += 0.50
+      recit[sm]["tilbehør"] = 0.50
+   elif tilbehør == "Nothing":
+      price += 0.00
+      recit[sm]["tilbehør"] = 0.00
+   else:
+      print("Invalid add-on selection.")
+      tilbehør = str(input("What add-on do you want? ")).title()
+      prisOmTilbehør()
 ########
-#coden begyner her
+#coden som skjøres begyner her
 
 welcome()
 
 antallKoper = int(input("How manny cups do you want? "))
 kopperAdd()
 
-print(kaffer)
-print(recit)
 coffeeMeny()
-
-
-
-
 while antallKoper > 0 :
    kaffe = str(input("What coffee do you want? ")).title()
    prisOmSmak()
-   size = str(input("What size do you want? ")).title()
-   prisOmStørelse()
    antallKoper -= 1
    kaffer[sm][f"{sm}smak"] = kaffe
    kaffer[sm]["size"] = size
    sm += 1
 print(kaffer)
 print(recit)
+
 
 
 #Complete the code here...
