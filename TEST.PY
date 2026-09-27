@@ -10,14 +10,14 @@ kaffer = [
 ]
 tall = 4
 tallomtekst = str(tall)
-kaffer.append({tall+"smak": "", "size": "", "tillbehør": ""})
+"""kaffer.append({tall,"smak": "", "size": "", "tillbehør": ""})
 
 kaffer[0]["0"] = "bigtalk"
 kaffer[4][tallomtekst+"smak"] = "cahhe"
 print(kaffer)
+"""
 
-
-
+#idk some frend told me abaut this
 kaffe = str(input("What coffee do you want? ")).title()
 def checknumber(x):
     match kaffe:

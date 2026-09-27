@@ -163,6 +163,9 @@ while antallKoper > 0 :
 print(kaffer)
 print(recit)
 
+
+
+
 print("----------------------------")
 print("Total Cost: £" + str(price))
 
