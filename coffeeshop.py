@@ -22,6 +22,7 @@ def welcome():
    print("+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+")
    print("")
 def coffeeMeny ():
+   print("----------------------------")
    print("We serve the following coffees:")
    print("----------------------------")
    print(" > Espresso      £2.50")
@@ -33,27 +34,36 @@ def coffeeMeny ():
    print(" > Flat White    £2.50")
    print("----------------------------")
 def coffeeSize():
+   print("----------------------------")
    print("We have the following sizes:")
    print(" > Medium      + £0.00")
    print(" > Large       + £0.50")
    print(" > XL          + £1.00")
    print("----------------------------")
 def coffeeTaste():
+   print("----------------------------")
    print("We have the following add-ons:")
    print("----------------------------")
    print(" > Vanilla     + £1.00")
    print(" > Milk        + £0.50")
-   print(" > Suger       + £0.50")
+   print(" > Sugar       + £0.50")
    print(" > Nothing     + £0.00")
    print("----------------------------")
+def recitPrint():
+   global sm
+   print("----------------------------")
+   print("Here is your receipt:       ")
+   for x in range(antallKoper):
+      print(f"{kaffer[sm][f"{sm}smak"]} £{recit[sm][f"{sm}smak"]}    {kaffer[sm]["size"]} £{recit[sm]["size"]}    {kaffer[sm]["tilbehør"]} £{recit[sm]["tilbehør"]}")
+      sm += 1
 #####
 #andre funsjoner for at kode skal funke
 # funksjon som lager tomme ordbøker som kan brukes senere i coden
 def kopperAdd ():
    #en løkke for å repitere det så så mange ganger sil svaret brukeren gir
    for x in range(antallKoper):
-      kaffer.append({f"{x}smak": "", "size": "", "tilbehør": ""})
-      recit.append({f"{x}smak": "", "size": "", "tilbehør": ""})
+      kaffer.append({f"{x}smak": "smak", "size": "size", "tilbehør": "tilbehør"})
+      recit.append({f"{x}smak": "2.50", "size": "1.00", "tilbehør": "0.50"})
 #denne funkjonen endrer prisene inpå "price" og inpå "recit"
 def prisOmSmak():
    global price
@@ -89,7 +99,7 @@ def prisOmStørelse():
    global size
    if size == "Medium":
       price += 0
-      recit[sm]["size"] = 0
+      recit[sm]["size"] = 0.00
    elif size == "Large":
       price += 0.50
       recit[sm]["size"] = 0.50
@@ -110,7 +120,7 @@ def prisOmTilbehør():
    elif tilbehør == "Milk":
       price += 0.50
       recit[sm]["tilbehør"] = 0.50
-   elif tilbehør == "Suger":
+   elif tilbehør == "Sugar":
       price += 0.50
       recit[sm]["tilbehør"] = 0.50
    elif tilbehør == "Nothing":
@@ -126,6 +136,7 @@ def prisOmTilbehør():
 welcome()
 
 antallKoper = int(input("How manny cups do you want? "))
+
 kopperAdd()
 #lagre nummeret for senere bruk
 tall = antallKoper
@@ -160,22 +171,11 @@ while antallKoper > 0 :
    antallKoper -= 1
    kaffer[sm]["tilbehør"] = tilbehør
    sm += 1
-print(kaffer)
-print(recit)
 
-
+antallKoper = tall
+sm = 0
+recitPrint()
 
 
 print("----------------------------")
-print("Total Cost: £" + str(price))
-
-#not using prob
-#but i did use it
-"""coffee = input("What type of coffee would you like? ").title()
-if coffee=="Espresso":
-   price = price + 2.50
-elif coffee=="Americano":
-   price = price + 3
-elif coffee=="Latte":
-   price = price + 2.50
-"""
+print("Your Total Cost is: £" + str(price))
