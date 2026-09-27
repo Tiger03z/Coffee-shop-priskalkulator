@@ -45,6 +45,7 @@ def coffeeTaste():
    print(" > Sugar       + £0.50")
    print(" > Nothing     + £0.00")
    print("----------------------------")
+#printer ut reciten i en løkke for å repitere det så mange ganger som brukeren har bestilt kopper
 def recitPrint():
    global sm
    print("----------------------------")
