@@ -1,16 +1,12 @@
 #Kilde: The Coffee Shop Price Calculator - www.101computing.net/the-coffee-shop-price-calculator
 
-"variabler"
-
-
+#variabler
 price = 0
 kaffer = []
 recit = []
 ##sm er for å ha en teller jeg kan bruke over hele programmet
 sm = 0
 
-
- 
 
 # funksjoner som printer ut al informasjon som skal sendes i begynelsen
 def welcome():
