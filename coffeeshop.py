@@ -4,7 +4,7 @@
 price = 0
 kaffer = []
 recit = []
-##sm er for å ha en teller jeg kan bruke over hele programmet
+##sm er en teller jeg kan bruke over hele programmet
 sm = 0
 
 
@@ -128,7 +128,7 @@ def prisOmTilbehør():
    else:
       print("Invalid add-on selection.")
       #windows
-      #tilbehør = str(input(f"What addon do you want for your {kaffer[sm]["size"]} {kaffer[sm][f'{sm}smak']}? ")).title()
+      #tilbehør = str(input(f"What addon do you want for your {kaffer[sm]["size"]} {kaffer[sm][f"{sm}smak"]}? ")).title()
       tilbehør = str(input(f"Do you want any add-ons for your {kaffer[sm]['size']} {kaffer[sm][f'{sm}smak']}? ")).title()
       prisOmTilbehør()
 ########
