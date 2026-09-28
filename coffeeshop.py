@@ -90,7 +90,7 @@ def prisOmSmak():
       recit[sm][f"{sm}smak"] = 2.50
    else:
       print("Invalid coffee selection.")
-      kaffe = str(input("What kind of coffee would you like for your {sm+1}. coffee? ")).title()
+      kaffe = str(input("What kind of coffee would you like? ")).title()
       prisOmSmak()
 ### same funksjon som endrer prisene inpå "price" og inpå "recit"
 def prisOmStørelse():
