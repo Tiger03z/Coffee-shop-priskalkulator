@@ -90,7 +90,7 @@ def prisOmSmak():
       recit[sm][f"{sm}smak"] = 2.50
    else:
       print("Invalid coffee selection.")
-      kaffe = str(input("What coffee do you want? ")).title()
+      kaffe = str(input("What kind of coffee would you like for your {sm+1}. coffee? ")).title()
       prisOmSmak()
 ### same funksjon som endrer prisene inpå "price" og inpå "recit"
 def prisOmStørelse():
@@ -107,7 +107,7 @@ def prisOmStørelse():
       recit[sm]["size"] = 1.00
    else:
       print("Invalid size selection.")
-      size = str(input(f"What size do you want for your {kaffer[sm][f'{sm}smak']}? ")).title()
+      size = str(input(f"What size would you like for your {kaffer[sm][f'{sm}smak']}? ")).title()
       prisOmStørelse()
 ### same funksjon som endrer prisene inpå "price" og inpå "recit"
 def prisOmTilbehør():
@@ -129,7 +129,7 @@ def prisOmTilbehør():
       print("Invalid add-on selection.")
       #windows
       #tilbehør = str(input(f"What addon do you want for your {kaffer[sm]["size"]} {kaffer[sm][f'{sm}smak']}? ")).title()
-      tilbehør = str(input(f"What addon do you want for your {kaffer[sm]['size']} {kaffer[sm][f'{sm}smak']}? ")).title()
+      tilbehør = str(input(f"Do you want any add-ons for your {kaffer[sm]['size']} {kaffer[sm][f'{sm}smak']}? ")).title()
       prisOmTilbehør()
 ########
 #coden som skjøres begyner her
@@ -144,7 +144,7 @@ tall = antallKoper
 
 coffeeMeny()
 while antallKoper > 0 :
-   kaffe = str(input("What kind of coffee would you like? ")).title()
+   kaffe = str(input(f"What kind of coffee would you like for your {sm+1}. coffee? ")).title()
    prisOmSmak()
    antallKoper -= 1
    kaffer[sm][f"{sm}smak"] = kaffe
