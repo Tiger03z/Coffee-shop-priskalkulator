@@ -28,6 +28,8 @@ prosjektet ditt.
         2. avinstaler python og instaler på nyt
         3. run or debug er sjult (dobbel klikk på en firkant med strek nedover og vis run or debug)
 
+    hvis du ikke skriver et tall på første spørmål krasjer programet
+
 ## programmet består av
 
     Jeg bruker masse av if/elif/else comander for mase vis av forslag som går i ordbøker

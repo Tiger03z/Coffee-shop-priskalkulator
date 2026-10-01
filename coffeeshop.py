@@ -47,7 +47,10 @@ def coffeeTaste():
    print("----------------------------")
 #printer ut reciten i en løkke for å repitere det så mange ganger som brukeren har bestilt kopper
 def recitPrint():
+   #global for å finee variabler utenfor funkjonen
    global sm
+   global takeaway
+   global yes_no
    print("----------------------------")
    print("Here is your receipt:       ")
    for x in range(antallKoper):
@@ -55,6 +58,7 @@ def recitPrint():
       #print(f"{kaffer[sm][f"{sm}smak"]} £{recit[sm][f"{sm}smak"]}    {kaffer[sm]["size"]} £{recit[sm]["size"]}    {kaffer[sm]["tilbehør"]} £{recit[sm]["tilbehør"]}")
       print(f"{kaffer[sm][f'{sm}smak']} £{recit[sm][f'{sm}smak']}    {kaffer[sm]['size']} £{recit[sm]['size']}    {kaffer[sm]['tilbehør']} £{recit[sm]['tilbehør']}")
       sm += 1
+   print(f"Takeaway?    {takeaway} £{yes_no}")
 #####
 #andre funsjoner for at kode skal funke
 # funksjon som lager tomme ordbøker som kan brukes senere i coden
@@ -65,6 +69,7 @@ def kopperAdd ():
       recit.append({f"{x}smak": "2.50", "size": "1.00", "tilbehør": "0.50"})
 #denne funkjonen endrer prisene inpå "price" og inpå "recit"
 def prisOmSmak():
+   #global for å finee variabler utenfor funkjonen
    global price
    global kaffe
    if kaffe == "Espresso":
@@ -111,6 +116,7 @@ def prisOmStørelse():
       prisOmStørelse()
 ### same funksjon som endrer prisene inpå "price" og inpå "recit"
 def prisOmTilbehør():
+   #global for å finee variabler utenfor funkjonen
    global price
    global tilbehør
    if tilbehør == "Vanilla":
@@ -131,6 +137,14 @@ def prisOmTilbehør():
       #tilbehør = str(input(f"What addon do you want for your {kaffer[sm]["size"]} {kaffer[sm][f"{sm}smak"]}? ")).title()
       tilbehør = str(input(f"Do you want any add-ons for your {kaffer[sm]['size']} {kaffer[sm][f'{sm}smak']}? ")).title()
       prisOmTilbehør()
+#for å resete variablene til defult
+def reset ():
+   #global for å finee variabler utenfor funkjonen
+   global antallKoper
+   global sm
+   global tall
+   antallKoper = tall
+   sm = 0
 ########
 #coden som skjøres begyner her
 
@@ -143,28 +157,23 @@ kopperAdd()
 tall = antallKoper
 
 coffeeMeny()
+#while for å repitere til du haar lagt til al info du trenger til orboken
 while antallKoper > 0 :
    kaffe = str(input(f"What kind of coffee would you like for your {sm+1}. coffee? ")).title()
    prisOmSmak()
    antallKoper -= 1
    kaffer[sm][f"{sm}smak"] = kaffe
    sm += 1
-
-#barrefor å resette til defult
-antallKoper = tall
-sm = 0
+reset()
 coffeeSize()
+#while for å repitere info til ordbok
 while antallKoper > 0 :
    size = str(input(f"What size would you like for your {kaffer[sm][f'{sm}smak']}? ")).title()
    prisOmStørelse()
    antallKoper -= 1
    kaffer[sm]["size"] = size
    sm += 1
-
-#barrefor å resette til defult
-antallKoper = tall
-sm = 0
-
+reset()
 coffeeTaste()
 while antallKoper > 0 :
    #windows
@@ -175,9 +184,16 @@ while antallKoper > 0 :
    kaffer[sm]["tilbehør"] = tilbehør
    sm += 1
 print("----------------------------")
-print("Your Total Cost is: £" + str(price))
+takeaway = str(input("Do you want takeaway for £1  yes/no ")).title()
 
-antallKoper = tall
-sm = 0
+if takeaway == "Yes":
+   price += 1 
+   yes_no = 1.0
+else: 
+   yes_no = 0.0
+
+print("----------------------------")
+print("Your Total Cost is: £" + str(price))
+reset()
 recitPrint()
 print("----------------------------")
