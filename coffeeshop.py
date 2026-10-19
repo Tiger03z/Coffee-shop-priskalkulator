@@ -33,8 +33,8 @@ def coffeeSize():
    print("----------------------------")
    print("We have the following sizes:")
    print(" > Medium      + £0.00")
-   print(" > Large       + £0.50")
-   print(" > XL          + £1.00")
+   print(" > Large       + £1.00")#sorry for at jeg ikke kan lese..
+   print(" > XL          + £1.50")
    print("----------------------------")
 def coffeeTaste():
    print("----------------------------")
@@ -105,11 +105,11 @@ def prisOmStørelse():
       price += 0
       recit[sm]["size"] = 0.00
    elif size == "Large":
-      price += 0.50
-      recit[sm]["size"] = 0.50
-   elif size == "Xl":
       price += 1.00
       recit[sm]["size"] = 1.00
+   elif size == "Xl":
+      price += 1.50
+      recit[sm]["size"] = 1.50 #sory jeg bare klarer ikke å lese bra haha
    else:
       print("Invalid size selection.")
       size = str(input(f"What size would you like for your {kaffer[sm][f'{sm}smak']}? ")).title()
@@ -150,7 +150,7 @@ def reset ():
 
 welcome()
 
-antallKoper = int(input("How many cups do you want? "))
+antallKoper = int(input("How many cups do you want? ")) #jeg har prøv å ta den inn i en løke og en for lopp og vær gang krasjer det og det har jeg skrvet i egenvurderingen men bar ikke les den 
 
 kopperAdd()
 #lagre nummeret for senere bruk

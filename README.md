@@ -16,7 +16,7 @@ prosjektet ditt.
     2. gå inpå filen som heter coffeshop.py
     3.du kan prøve å finne en knapp som ligner på en trekant/pil og når du trykker på den vil programet skjøres
     
-    $ du kan åpne terminal med comand+j men usiker på hvor du skal derreter
+    $ du kan åpne terminal med comand+j (er det bedre å bare ikke si noe!!)
 
     # ting som kan gå gale
     du bruker windos. og da kan det være du må gå inn i koden
