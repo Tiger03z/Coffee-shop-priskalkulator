@@ -16,7 +16,7 @@ kaffer[0]["0"] = "bigtalk"
 kaffer[4][tallomtekst+"smak"] = "cahhe"
 print(kaffer)
 """
-
+"""
 #idk some frend told me abaut this
 kaffe = str(input("What coffee do you want? ")).title()
 def checknumber(x):
@@ -29,4 +29,4 @@ def checknumber(x):
             print("It's neither Espresso nor Americano")
     
 checknumber("Espresso")
-checknumber("Americano")
+checknumber("Americano")"""
